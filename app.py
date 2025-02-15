@@ -9,12 +9,12 @@ app.secret_key = 'supersecretkey'  # Required for session management
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+db = SQLAlchemy(app) #Set up database
 bcrypt = Bcrypt(app)
 
 # User Model
 class User(db.Model):
-    # Create database columns
+    # Create database columns 
     id = db.Column(db.Integer, primary_key=True)  
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
